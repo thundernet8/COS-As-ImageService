@@ -1,0 +1,2 @@
+require("./upload");
+require("./delete");
