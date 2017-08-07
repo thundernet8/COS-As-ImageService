@@ -8,7 +8,7 @@ Image upload/download service with Tecent COS
 ### 申请腾讯云对象存储COS服务实例以及CDN服务(可选)
 ### 个人服务器安装
   * [x] NodeJS
-  * [x] Redis
+  * [x] Redis(用于存储删除链接相关信息)
   * [x] Nginx(反代上传以及删除接口服务至对应node端，上传静态页面位于web文件夹下，静态网站处理)
   * [x] forever | pm2 (持久运行node程序)
 ### 环境变量
