@@ -46,7 +46,7 @@ export default async function deleteLinkHandler(req, res) {
                     console.log(result);
                 }
                 // result.data.toString();
-                res.status(result.status).send("Delete image failed");
+                res.status(result.statusCode).send("Delete image failed");
             }
 
             // clear redis deleteKey
@@ -63,6 +63,6 @@ export default async function deleteLinkHandler(req, res) {
                 );
                 console.log(err);
             }
-            res.status(err.status || 400).send(msg);
+            res.status(400).send(msg);
         });
 }

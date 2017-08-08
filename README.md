@@ -15,3 +15,5 @@ Image upload/download service with Tecent COS
 ***重要的key,password等信息将作为环境变量,拷贝envrc.sample为envrc并填写必要的信息***
 
 **注意：如果使用了CDN，要设置CDN管理该对象存储域名的HTTP Header,添加Content-Disposition:inline**
+
+详细见[Help](./help.md)

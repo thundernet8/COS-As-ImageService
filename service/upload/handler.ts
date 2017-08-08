@@ -28,7 +28,7 @@ const addDeleteLink = (
     const deleteLink = `${PUBLIC_DELETE_HOST}/delete/${key}`;
     if (isDev) {
         console.log(
-            `${new Date().toISOString()}:Redis set delete link: ${deleteLink}\nFor image link: ${imageUrl}`
+            `${new Date().toISOString()}: Redis set delete link: ${deleteLink}\n    For image link: ${imageUrl}`
         );
     }
     return deleteLink;
@@ -126,12 +126,12 @@ export default async function(req, res) {
                     if (result.statusCode < 200 || result.statusCode >= 300) {
                         if (isDev) {
                             console.log(
-                                `put object with ${result.status} status error`
+                                `${new Date().toISOString()}: put object with ${result.status} status error`
                             );
                             console.log(result);
                         }
                         resp.msg = result.data.toString();
-                        res.status(result.status).send(resp);
+                        res.status(result.statusCode).send(resp);
                     }
                     const path = objectName;
                     const internalUrl = `${PUBLIC_DOWNLOAD_HOST}/${path}`; // myqcloud.com默认域名链接
@@ -160,10 +160,12 @@ export default async function(req, res) {
                             ? err.message
                             : err.response.data.message;
                     if (isDev) {
-                        console.log(`put object with error: ${resp.msg}`);
+                        console.log(
+                            `${new Date().toISOString()}: put object with error: ${resp.msg}`
+                        );
                         console.log(err);
                     }
-                    res.status(err.status || 400).send(resp);
+                    res.status(400).send(resp);
                 });
         });
     });

@@ -10,3 +10,8 @@ node_modules
 
 # env
 envrc
+
+# Compiled js
+service/**/*.js
+COS/**/*.js
+*.js
