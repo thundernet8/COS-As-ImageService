@@ -24,7 +24,7 @@ export const DELETE_ALLOW_ORIGIN = [
 ];
 
 // Public host
-export const PUBLIC_DOWNLOAD_HOST = "https://i.fuli.news";
+export const PUBLIC_DOWNLOAD_HOST = "https://i.fedepot.com"; // 如果启用了CDN自定义域名，在这里填写
 export const PUBLIC_UPLOAD_HOST = "https://s.fuli.news";
 export const PUBLIC_DELETE_HOST = "https://s.fuli.news";
 

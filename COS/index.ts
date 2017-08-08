@@ -3,7 +3,9 @@ import * as env from "../env";
 import * as Promise from "bluebird";
 
 export const DOMAIN = `http://${env.COS_BUCKET_NAME}-${env.COS_APPID}.${env.COS_REGION_NAME}.myqcloud.com`;
-export const CDN_DOMAIN = `http://${env.COS_BUCKET_NAME}-${env.COS_APPID}.file.myqcloud.com`; // 可以为空，则不使用CDN加速访问资源
+export const CDN_DOMAIN =
+    env.PUBLIC_DOWNLOAD_HOST ||
+    `http://${env.COS_BUCKET_NAME}-${env.COS_APPID}.file.myqcloud.com`; // 可以为空，则不使用CDN加速访问资源
 
 const cos = new COS({
     AppId: env.COS_APPID,

@@ -4,6 +4,7 @@ import * as SizeOf from "image-size";
 import * as uuidv4 from "uuid/v4";
 import cos, { DOMAIN, CDN_DOMAIN } from "../../COS";
 import redisClient from "../redis";
+import { getFormatDate } from "../utils";
 import {
     PUBLIC_DOWNLOAD_HOST,
     IMAGE_SIZE_LIMIT,
@@ -88,7 +89,7 @@ export default async function(req, res) {
             }
             const md5 = MD5(buffer);
             const demensions = SizeOf(buffer);
-            const objectName = md5;
+            const objectName = `${getFormatDate(null, "YYYY/MM/DD")}/${md5}`;
             params = Object.assign(
                 {
                     Bucket: COS_BUCKET_NAME,
